@@ -20,6 +20,7 @@ int main(){
         printf("Processo padre\n");
         printf("Padre: PID = %d, PID padre = %d\n", getpid(), pid);
         int status;
+        wait(&status);
         if(WIFEXITED(status)){
             printf("Padre: figlio terminato normalmente\n");
             printf("Padre: codice di uscita = %d\n", WEXITSTATUS(status));
