@@ -20,7 +20,7 @@ int main(){
             a = a + b;
             printf("Risultato nipote: %d\n", a);
             _exit(99);
-        }
+        }       
         int status;
         wait(&status);
         if(WIFEXITED(status)){
