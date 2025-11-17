@@ -13,7 +13,7 @@ int main(){
             int b = 3;
             a = a * b;
             printf("Risultato 1: %d\n", a);
-            _exit(a);
+            exit(a);
         }       
         int ris_1;
         wait(&ris_1);
@@ -22,7 +22,7 @@ int main(){
             a = a * b;
             printf("Risultato 2: %d\n", a);
             a = a + WEXITSTATUS(ris_1);
-        _exit(a);
+        exit(a);
     }else{
         int ris_2;
         wait(&ris_2);
