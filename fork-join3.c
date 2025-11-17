@@ -29,24 +29,25 @@ int prog3(){
 }
 
 int main(){
-    int pid = fork();
+    pid_t pid = fork();
     if(pid == 0){     
-        int proc3 = fork();
-        if(proc3 == 0){
-            exit(prog1());
-        }       
-        int ris_1;
-        wait(&ris_1);
-            int a;
-            a = prog2() + WEXITSTATUS(ris_1);
-        exit(a);
-    }else{
-        int ris_2;
-        wait(&ris_2);
-            int a;
-            a = prog3() + WEXITSTATUS(ris_2);    
-            printf("Risultato finale: %d\n", a);    
+        exit(prog2());
     }
+
+    pid_t proc3 = fork();
+    if(proc3 == 0){
+        exit(prog1());
+    }       
+
+    int a = prog3();    
+
+
+    int ris_1;
+    wait(&ris_1);
+    int ris_2;
+    wait(&ris_2);
+    a = a + WEXITSTATUS(ris_1) + WEXITSTATUS(ris_2);
+    printf("Risultato finale: %d\n", a);    
     return 0;
 }
 
