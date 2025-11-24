@@ -12,4 +12,5 @@ int main(){
     k = incrementa();
     printf("Valore di k: %d\n", *k);
     return 0;
+    free(k);
 }   
